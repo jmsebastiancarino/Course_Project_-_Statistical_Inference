@@ -1,0 +1,124 @@
+---
+title: "ToothGrowth Data Analysis"
+author: "Juan Mari Sebastian Carino"
+date: "October 20, 2018"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Case Overview
+The ToothGrowth data tells about the effect of Vitamin C on tooth growth in guinea pigs. The response is the lenght of odontoblasts (cells responsible for tooth growth) in 60 guinea pigs. Each animal received one of three does levels of Vitamin C (0.5, 1, and 2 mg/day) by one of two delivery methods, orange juice or ascorbic acid (a form of Vitamin C and coded as vc). 
+
+This description is adapted from the C.I. Bliss (1952). The Statistics of BIoassay. Academic Press.
+    
+##Analysis    
+```{r summary}
+summary(ToothGrowth)
+```
+The ToothGrowth data has three columns: the len (tooth length), supp (supplement type (VC or OJ)), and dose (dose in milligrams/day). Below is the summary of the ToothGrowth data showing the min, max, median, mean, and 1st & 3rd quantiles. 
+    
+In this analysis,  the author will compare the tooth growth by supp and dose. There will be two sets of tests: one comparison of tooth growth between OJ and VC and one comparison of tooth growth among the number of dosages between OJ and VC. Using t test statistic, the author will test whether there is a difference between the mean of tooth growth given the supplement is OJ and the mean of tooth growth given the supplement is VC. 
+
+The hypothesis test shall be: 
+Difference in Toothgrowth means relative to supplement type
+
+* H0: mu_OJ - mu_VC  = 0
+
+* Ha: mu_OJ - mu_VC != 0
+
+Difference in Toothgrowth means relative to number of dosages
+
+* H0: 
+      + mu_05 - mu_1  = 0
+      + mu_1  - mu_2  = 0
+      + mu_05 - mu_2  = 0
+       
+* Ha: 
+      + mu_05 - mu_1  != 0
+      + mu_1  - mu_2  != 0
+      + mu_05 - mu_2  != 0
+
+
+```{r first test}
+# Subset of data - OJ & VC
+OJ <- ToothGrowth$len[ToothGrowth$supp == "OJ"]
+VC <- ToothGrowth$len[ToothGrowth$supp == "VC"]
+
+# Standard Deviation
+sd_OJ <- sd(OJ)
+sd_VC <- sd(VC)
+
+# Mean
+mu_OJ <- mean(OJ)
+mu_VC <- mean(VC)
+```
+
+```{r result first test}
+# Consolidating Standard Deviations and Means
+con <- data.frame(c(mu_OJ, mu_VC), c(sd_OJ, sd_VC), row.names =c("OJ", "VC") )
+colnames(con) <- c("Mean", "Sd")
+con
+
+# Calculation of T test
+t.test(OJ, VC, paired=TRUE, alternative="two.sided")
+
+```
+  
+  Based from the table, the mean of tooth growth using orange juice as supplement type is higher than the mean of tooth growth using ascorbic acid. The standard deviation, on the other hand is higher for ascorbic acid and lower for orange juice. Now, we will see through out t-test statistic if there is a difference in the means between ascorbic acid and orange juice. Under 95% confidence interval, the p-value of our t-test is 0.00255 which is less than 0.05. This means that we reject the null hypothesis and we conclude that there is a difference between two types of supplement type. This may be true because our supplement types are delivery methods; the dosages of Vitamin C contained in these supplement types are different. Based on the graph, it can be seen that orange juice has more effect on tooth length as a supplement type rather than ascorbic acid. 
+
+```{r graph}
+library(ggplot2)
+g <- ggplot(data=ToothGrowth, aes(dose, len))
+g + geom_point(aes(colour=dose)) + theme_dark() + facet_grid(.~supp) + ylab("Tooth Length") + xlab("Dosage") + ggtitle("Effect of Vitamin C to Tooth Length of Guinea Pigs")
+```
+
+  The author will perform a t-test statistic to test the difference in the means of tooth growth relative to the amount of dosage of Vitamin C.
+  
+```{r second test}
+# Subset of data - OJ & VC
+M <- ToothGrowth$len[ToothGrowth$dose == 0.5]
+N <- ToothGrowth$len[ToothGrowth$dose == 1]
+O <- ToothGrowth$len[ToothGrowth$dose == 2]
+
+# Standard Deviation
+sd_M <- sd(M)
+sd_N <- sd(N)
+sd_O <- sd(O)
+
+# Mean
+mu_M <- mean(M)
+mu_N <- mean(N)
+mu_O <- mean(O)
+```
+
+```{r result second test}
+# Consolidating the standard deviations and means
+con <- data.frame(c(mu_M, mu_N, mu_O), c(sd_M, sd_N, sd_O), row.names =c("0.5", "1", "2"))
+colnames(con) <- c("Mean", "Sd")
+con
+
+```
+    
+  Based from the result, the difference in means per dosage are large. However, the difference in standard deviations are small. To see if this result will be consistent, we will test the results of t-test statistic. 
+    
+```{r }
+# Dosage 0.5 vs 1
+t.test(N, M, paired=TRUE, alternative="greater")
+
+# Dosage 1 vs 2
+t.test(O, N, paired=TRUE, alternative="two.sided")
+
+# Dosage 0.5 vs 2
+t.test(O, M, paired=TRUE, alternative="two.sided")
+```
+    
+  Based from the results, the mean difference between 0.5 mg/day and 1 mg/day is 9.13; between 1 mg/day and 2 mg/day is 6.365; between 0.5 mg/day and 2 mg/day is 15.495. It can be observed that the mean difference is increasing as the dosage of vitaminc C increases. The p values of the differences based on our three t-test statistics are below 0.05. With that, the author concludes that the increase in tooth length is affected by the amount of Vitamin C dosage irrespective of supplement type. This holds true as well when you check the graph shown earlier. 
+    
+
+
