@@ -1,54 +1,5 @@
 <!DOCTYPE html>
 
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-
-
-<head>
-
-
-
-<meta charset="utf-8" />
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<meta name="generator" content="pandoc" />
-
-
-
-
-
-<meta name="author" content="Juan Mari Sebastian Carino" />
-
-
-
-<meta name="date" content="2018-10-20" />
-
-
-
-<title>ToothGrowth Data Analysis</title>
-
-
-
-<link href="data:text/css;charset=utf-8,%2Ehljs%2Dliteral%20%7B%0Acolor%3A%20%23990073%3B%0A%7D%0A%2Ehljs%2Dnumber%20%7B%0Acolor%3A%20%23099%3B%0A%7D%0A%2Ehljs%2Dcomment%20%7B%0Acolor%3A%20%23998%3B%0Afont%2Dstyle%3A%20italic%3B%0A%7D%0A%2Ehljs%2Dkeyword%20%7B%0Acolor%3A%20%23900%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Ehljs%2Dstring%20%7B%0Acolor%3A%20%23d14%3B%0A%7D%0A" rel="stylesheet" />
-
-
-
-
-<style type="text/css">code{white-space: pre;}</style>
-
-<style type="text/css">
-
-  pre:not([class]) {
-
-    background-color: white;
-
-  }
-
-</style>
-
 <script type="text/javascript">
 
 if (window.hljs) {
