@@ -1,83 +1,6 @@
 <!DOCTYPE html>
 
-<script type="text/javascript">
-
-if (window.hljs) {
-
-  hljs.configure({languages: []});
-
-  hljs.initHighlightingOnLoad();
-
-  if (document.readyState && document.readyState === "complete") {
-
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-
-  }
-
-}
-
-</script>
-
-
-
-
-
-
-
-<style type="text/css">
-
-h1 {
-
-  font-size: 34px;
-
-}
-
-h1.title {
-
-  font-size: 38px;
-
-}
-
-h2 {
-
-  font-size: 30px;
-
-}
-
-h3 {
-
-  font-size: 24px;
-
-}
-
-h4 {
-
-  font-size: 18px;
-
-}
-
-h5 {
-
-  font-size: 16px;
-
-}
-
-h6 {
-
-  font-size: 12px;
-
-}
-
-.table th:not([align]) {
-
-  text-align: left;
-
-}
-
-</style>
-
-
-
+<head>
 
 
 </head>
@@ -85,53 +8,6 @@ h6 {
 
 
 <body>
-
-
-
-<style type="text/css">
-
-.main-container {
-
-  max-width: 940px;
-
-  margin-left: auto;
-
-  margin-right: auto;
-
-}
-
-code {
-
-  color: inherit;
-
-  background-color: rgba(0, 0, 0, 0.04);
-
-}
-
-img {
-
-  max-width:100%;
-
-  height: auto;
-
-}
-
-.tabbed-pane {
-
-  padding-top: 12px;
-
-}
-
-button.code-folding-btn:focus {
-
-  outline: none;
-
-}
-
-</style>
-
-
-
 
 
 
