@@ -191,15 +191,6 @@ button.code-folding-btn:focus {
 
 <!-- tabsets -->
 
-<script>
-
-$(document).ready(function () {
-
-  window.buildTabsets("TOC");
-
-});
-
-</script>
 
 
 
@@ -527,49 +518,7 @@ t.test(O, M, paired=TRUE, alternative=&quot;two.sided&quot;)</code></pre>
 
 
 
-<script>
 
-
-
-// add bootstrap table styles to pandoc tables
-
-function bootstrapStylePandocTables() {
-
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-
-}
-
-$(document).ready(function () {
-
-  bootstrapStylePandocTables();
-
-});
-
-
-
-
-
-</script>
-
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-
-<script>
-
-  (function () {
-
-    var script = document.createElement("script");
-
-    script.type = "text/javascript";
-
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-
-    document.getElementsByTagName("head")[0].appendChild(script);
-
-  })();
-
-</script>
 
 
 
