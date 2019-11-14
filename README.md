@@ -61,7 +61,7 @@
 
 <h2>Case Overview</h2>
 
-<p>The ToothGrowth data tells about the effect of Vitamin C on tooth growth in guinea pigs. The response is the lenght of odontoblasts (cells responsible for tooth growth) in 60 guinea pigs. Each animal received one of three does levels of Vitamin C (0.5, 1, and 2 mg/day) by one of two delivery methods, orange juice or ascorbic acid (a form of Vitamin C and coded as vc).</p>
+<p>The ToothGrowth data tells about the effect of Vitamin C on tooth growth in guinea pigs. The response is the length of odontoblasts (cells responsible for tooth growth) in 60 guinea pigs. Each animal received one of three does levels of Vitamin C (0.5, 1, and 2 mg/day) by one of two delivery methods, orange juice or ascorbic acid (a form of Vitamin C and coded as vc).</p>
 
 <p>This description is adapted from the C.I. Bliss (1952). The Statistics of BIoassay. Academic Press.</p>
 
